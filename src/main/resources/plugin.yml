@@ -1,0 +1,5 @@
+name: LiteClientDetector
+version: ${project.version}
+main: com.dejavu.detector.LiteClientDetector
+authors: [Dejavu, Nort721]
+description: Detects lite client users on login
