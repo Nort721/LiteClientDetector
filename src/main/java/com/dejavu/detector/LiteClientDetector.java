@@ -44,9 +44,14 @@ public class LiteClientDetector extends JavaPlugin implements Listener, PluginMe
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] message) {
         if (!channel.equals("218c69d8875f")) return;
-        for (String cmd : commands) {
-            cmd = cmd.replaceAll("%player%", player.getName());
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+
+        String msg = new String(message);
+
+        if (msg.contains("LiteClient")) {
+            for (String cmd : commands) {
+                cmd = cmd.replaceAll("%player%", player.getName());
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);
+            }
         }
     }
 
